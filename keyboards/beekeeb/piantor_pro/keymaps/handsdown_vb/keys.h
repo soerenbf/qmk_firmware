@@ -22,6 +22,6 @@
 
 // Layers
 #define LT_R LT(1,KC_R)
-#define LT_TAB LT(3,KC_TAB)
-#define LT_ESC LT(2,KC_ESC)
+#define LT_TAB LT(2,KC_TAB)
+#define LT_ESC LT(3,KC_ESC)
 #define LT_SPC LT(4,KC_SPC)

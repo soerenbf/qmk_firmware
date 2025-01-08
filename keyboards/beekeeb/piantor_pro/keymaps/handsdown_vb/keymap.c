@@ -1,7 +1,14 @@
 // Copyright 2023 QMK
 // SPDX-License-Identifier: GPL-2.0-or-later
+//
+// TODO:
+// - OS detection
+//  - danish letters on alt ;oa (like macos)
 
 #include QMK_KEYBOARD_H
+
+#include "features/achordion.h"
+#include "features/custom_shift_keys.h"
 
 const uint16_t HM_C = LGUI_T(KC_C);
 const uint16_t HM_S = LALT_T(KC_S);
@@ -95,3 +102,60 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  // Achordion
+  if (!process_achordion(keycode, record)) { return false; }
+  // custom shift keys
+  if (!process_custom_shift_keys(keycode, record)) { return false; }
+
+  return true;
+}
+
+void matrix_scan_user(void) {
+  achordion_task();
+}
+
+// Achordion
+// https://getreuer.info/posts/keyboards/achordion/index.html
+bool achordion_chord(uint16_t tap_hold_keycode,
+                     keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode,
+                     keyrecord_t* other_record) {
+  // Otherwise, follow the opposite hands rule.
+  return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
+bool achordion_eager_mod(uint8_t mod) {
+  switch (mod) {
+    case MOD_LSFT:
+    case MOD_RSFT:
+    case MOD_LCTL:
+    case MOD_RCTL:
+    case MOD_LALT:
+    case MOD_RALT:
+    case MOD_LGUI:
+    case MOD_RGUI:
+      return true;  // Eagerly apply Shift, Alt, and Ctrl mods.
+
+    default:
+      return false;
+  }
+}
+
+// custom shift keys
+// https://getreuer.info/posts/keyboards/custom-shift-keys/index.html
+const custom_shift_key_t custom_shift_keys[] = {
+  {KC_BSPC, KC_DEL }, // Shift backspace is del
+  {HM_DOT , KC_COLN}, // Shift . is :
+  {KC_COMM, KC_SCLN}, // Shift , is ;
+  {KC_ASTR, KC_BSLS}, /* Shift * is \ */
+  {KC_MINS, KC_PLUS}, // Shift - is +
+  {KC_EQL , KC_EXLM}, // Shift = is !
+  {KC_AT  , KC_HASH}, // Shift @ is #
+  {KC_PIPE, KC_AMPR}, // Shift | is &
+  {KC_CIRC, KC_PERC}, // Shift ^ is %
+  {LT_SPC , KC_UNDS}, // Shift space is _
+};
+uint8_t NUM_CUSTOM_SHIFT_KEYS =
+    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);

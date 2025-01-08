@@ -137,9 +137,9 @@ bool achordion_eager_mod(uint8_t mod) {
 const custom_shift_key_t custom_shift_keys[] = {
   {KC_BSPC, KC_DEL }, // Shift backspace is del
   {HM_DOT , KC_COLN}, // Shift . is :
-  {KC_COMM, KC_SCLN}, // Shift , is ;
+  {HM_COMM, KC_SCLN}, // Shift , is ;
   {KC_ASTR, KC_BSLS}, /* Shift * is \ */
-  {KC_MINS, KC_PLUS}, // Shift - is +
+  {HM_MINS, KC_PLUS}, // Shift - is +
   {KC_EQL , KC_EXLM}, // Shift = is !
   {KC_AT  , KC_HASH}, // Shift @ is #
   {KC_PIPE, KC_AMPR}, // Shift | is &

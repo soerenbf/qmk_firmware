@@ -7,31 +7,11 @@
 
 #include QMK_KEYBOARD_H
 
+// Userspace
 #include "features/achordion.h"
 #include "features/custom_shift_keys.h"
 
-const uint16_t HM_Q = HYPR_T(KC_Q);
-const uint16_t HM_C = LGUI_T(KC_C);
-const uint16_t HM_S = LALT_T(KC_S);
-const uint16_t HM_N = LCTL_T(KC_N);
-const uint16_t HM_T = LGUI_T(KC_T);
-const uint16_t HM_F = RALT_T(KC_F);
-const uint16_t HM_D = LCAG_T(KC_D);
-const uint16_t HM_K = MEH_T(KC_K);
-
-const uint16_t HM_Z = HYPR_T(KC_Z);
-const uint16_t HM_A = RGUI_T(KC_A);
-const uint16_t HM_E = RCTL_T(KC_E);
-const uint16_t HM_I = LALT_T(KC_I);
-const uint16_t HM_H = RGUI_T(KC_H);
-const uint16_t HM_DOT = RALT_T(KC_DOT);
-const uint16_t HM_COMM = LCAG_T(KC_COMM);
-const uint16_t HM_MINS = MEH_T(KC_MINS);
-
-const uint16_t LT_R = LT(1,KC_R);
-const uint16_t LT_TAB = LT(3,KC_TAB);
-const uint16_t LT_ESC = LT(2,KC_ESC);
-const uint16_t LT_SPC = LT(4,KC_SPC);
+#include "keys.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // BASE

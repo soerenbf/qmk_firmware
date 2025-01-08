@@ -1,0 +1,25 @@
+// LH mods
+#define HM_Q HYPR_T(KC_Q)
+#define HM_C LGUI_T(KC_C)
+#define HM_S LALT_T(KC_S)
+#define HM_N LCTL_T(KC_N)
+#define HM_T LGUI_T(KC_T)
+#define HM_F RALT_T(KC_F)
+#define HM_D LCAG_T(KC_D)
+#define HM_K MEH_T(KC_K)
+
+// RH mods
+#define HM_Z HYPR_T(KC_Z)
+#define HM_A RGUI_T(KC_A)
+#define HM_E RCTL_T(KC_E)
+#define HM_I LALT_T(KC_I)
+#define HM_H RGUI_T(KC_H)
+#define HM_DOT RALT_T(KC_DOT)
+#define HM_COMM LCAG_T(KC_COMM)
+#define HM_MINS MEH_T(KC_MINS)
+
+// Layers
+#define LT_R LT(1,KC_R)
+#define LT_TAB LT(3,KC_TAB)
+#define LT_ESC LT(2,KC_ESC)
+#define LT_SPC LT(4,KC_SPC)

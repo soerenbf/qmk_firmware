@@ -8,3 +8,4 @@
 
 #define PERMISSIVE_HOLD
 
+#define KC_LCAG LCAG(KC_NO)

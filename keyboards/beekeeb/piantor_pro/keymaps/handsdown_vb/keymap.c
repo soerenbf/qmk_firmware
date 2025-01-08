@@ -10,17 +10,23 @@
 #include "features/achordion.h"
 #include "features/custom_shift_keys.h"
 
+const uint16_t HM_Q = HYPR_T(KC_Q);
 const uint16_t HM_C = LGUI_T(KC_C);
 const uint16_t HM_S = LALT_T(KC_S);
 const uint16_t HM_N = LCTL_T(KC_N);
 const uint16_t HM_T = LGUI_T(KC_T);
 const uint16_t HM_F = RALT_T(KC_F);
+const uint16_t HM_D = LCAG_T(KC_D);
+const uint16_t HM_K = MEH_T(KC_K);
 
+const uint16_t HM_Z = HYPR_T(KC_Z);
 const uint16_t HM_A = RGUI_T(KC_A);
 const uint16_t HM_E = RCTL_T(KC_E);
 const uint16_t HM_I = LALT_T(KC_I);
 const uint16_t HM_H = RGUI_T(KC_H);
 const uint16_t HM_DOT = RALT_T(KC_DOT);
+const uint16_t HM_COMM = LCAG_T(KC_COMM);
+const uint16_t HM_MINS = MEH_T(KC_MINS);
 
 const uint16_t LT_R = LT(1,KC_R);
 const uint16_t LT_TAB = LT(3,KC_TAB);
@@ -33,9 +39,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_CIRC,  KC_V,    KC_W,    KC_M,    KC_G,    KC_X,                       KC_PIPE,   KC_U,    KC_O,    KC_Y,    KC_B,   KC_AT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_Q,     HM_C,    HM_S,    HM_N,    HM_T,    KC_K,                       KC_MINS,   HM_A,    HM_E,    HM_I,    HM_H,    KC_Z,
+      HM_Q,     HM_C,    HM_S,    HM_N,    HM_T,    HM_K,                       HM_MINS,   HM_A,    HM_E,    HM_I,    HM_H,    HM_Z,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_GRAVE,  KC_P,    HM_F,    KC_L,    KC_D,    KC_J,                        KC_EQL, KC_COMM, KC_QUOTE, KC_DOT,  KC_SLSH, KC_ASTR,
+     KC_GRAVE,  KC_P,    HM_F,    KC_L,    HM_D,    KC_J,                        KC_EQL, HM_COMM, KC_QUOTE, HM_DOT,  KC_SLSH, KC_ASTR,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           LT_TAB,  LT_ESC,  LT_R,       LT_SPC,  KC_BSPC, KC_ENT
                                       //`--------------------------'  `--------------------------'
@@ -46,9 +52,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_HOME,  KC_UP,  KC_END,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                      KC_PGUP, KC_LEFT, KC_DOWN,KC_RIGHT, XXXXXXX, XXXXXXX,
+      KC_HYPR, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_MEH,                       KC_PGUP, KC_LEFT, KC_DOWN,KC_RIGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_RALT, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PGDN, KC_CIRC, XXXXXXX, KC_DLR,  XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_RALT, XXXXXXX, KC_LCAG, XXXXXXX,                      KC_PGDN, KC_CIRC, XXXXXXX, KC_DLR,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, _______,    KC_MPLY, KC_MUTE, KC_MSTP
                                       //`--------------------------'  `--------------------------'
@@ -80,13 +86,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // FN
     [4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      _______, _______, _______, _______, _______, _______,
+      XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      _______, _______, _______, _______, _______, MO(5),
+      XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,                      _______, _______, _______, _______, _______, MO(5),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      _______, _______, _______, _______, _______, _______,
+      XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    _______, XXXXXXX, XXXXXXX
+                                          KC_CAPS, XXXXXXX, CW_TOGG,    _______, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
     // QMK
@@ -122,6 +128,9 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      keyrecord_t* tap_hold_record,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
+  // Also allow same-hand holds when the other key is in the rows below the
+  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3) { return true; }
   // Otherwise, follow the opposite hands rule.
   return achordion_opposite_hands(tap_hold_record, other_record);
 }

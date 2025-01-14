@@ -21,7 +21,8 @@
 #define HM_COMM LCAG_T(KC_COMM)
 
 // Layers
-#define LT_R LT(1,KC_R)
-#define LT_TAB LT(2,KC_TAB)
+#define LT_SPC LT(1,KC_SPC)
+#define LT_R LT(2,KC_R)
 #define LT_ESC LT(3,KC_ESC)
-#define LT_SPC LT(4,KC_SPC)
+#define LT_ENT LT(4,KC_ENT)
+#define LT_TAB LT(5,KC_TAB)

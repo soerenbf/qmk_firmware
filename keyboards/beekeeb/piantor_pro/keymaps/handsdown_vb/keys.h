@@ -26,3 +26,8 @@
 #define LT_ESC LT(3,KC_ESC)
 #define LT_ENT LT(4,KC_ENT)
 #define LT_TAB LT(5,KC_TAB)
+
+// MacOS
+#define MC_CPY LGUI(KC_C)
+#define MC_PST LGUI(KC_V)
+#define MC_CUT LGUI(KC_X)

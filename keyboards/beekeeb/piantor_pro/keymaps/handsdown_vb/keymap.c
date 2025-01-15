@@ -78,11 +78,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // MISC + MEDIA
     [5] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______, _______, _______, _______, _______,                      _______,  KC_7,   KC_VOLU,    KC_9, XXXXXXX, XXXXXXX,
+      _______, _______, _______, MC_CPY,  MC_PST,  MC_CUT,                       _______, XXXXXXX, KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_HYPR, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_MEH,                       _______, KC_MPRV, KC_VOLD, KC_MNXT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_RALT, XXXXXXX, KC_LCAG, XXXXXXX,                      _______,  KC_1,    KC_2,    KC_3,   _______, _______,
+      XXXXXXX, XXXXXXX, KC_RALT, XXXXXXX, KC_LCAG, XXXXXXX,                      _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, XXXXXXX, XXXXXXX,    KC_MUTE, KC_MPLY, KC_MSTP
                                       //`--------------------------'  `--------------------------'
@@ -121,8 +121,12 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
   switch (tap_hold_keycode) {
-    // Allow same hand mods nav layer
+    // Allow same hand mods layer for thumbs
     case LT_SPC:
+    case LT_R:
+    case LT_ESC:
+    case LT_ENT:
+    case LT_TAB:
       return true;
   }
 

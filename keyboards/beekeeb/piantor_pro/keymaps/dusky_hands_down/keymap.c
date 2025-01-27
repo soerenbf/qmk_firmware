@@ -17,9 +17,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // BASE
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX,  KC_Q,    KC_W,    KC_M,    KC_B,    KC_V,                        KC_QUOT,  KC_F,    KC_O,    KC_U,   KC_EXLM, XXXXXXX,
+      XXXXXXX,  KC_Q,    KC_W,    KC_M,    KC_B,    KC_V,                        KC_QUOT,  KC_F,    KC_O,    KC_U,   KC_MINS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_Z,    HM_C,    HM_S,    HM_N,    HM_T,    KC_Y,                         KC_J,    HM_H,    HM_A,    HM_E,    HM_I,   KC_MINS,
+       KC_Z,    HM_C,    HM_S,    HM_N,    HM_T,    KC_Y,                         KC_J,    HM_H,    HM_A,    HM_E,    HM_I,   KC_QUES,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,  KC_P,    HM_G,    KC_L,    KC_D,    KC_X,                         KC_AT,   KC_K,   KC_COMM, HM_DOT,  KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, _______, _______, _______, _______, _______,                      KC_GRV,  KC_LCBR, KC_RCBR, KC_PERC, KC_EQL,  _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                       KC_LT,  KC_LPRN, KC_RPRN,  KC_GT,  KC_PIPE, _______,
+      _______, _______, _______, _______, _______, _______,                       KC_LT,  KC_LPRN, KC_RPRN,  KC_GT,  KC_PIPE, KC_EXLM,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, _______, _______, _______, _______, _______,                      KC_AMPR, KC_LBRC, KC_RBRC, KC_TILD, KC_BSLS, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -161,10 +161,10 @@ const custom_shift_key_t custom_shift_keys[] = {
   {HM_DOT , KC_COLN}, // Shift . is : (sym ~)
   {KC_COMM, KC_SCLN}, // Shift , is ;
   {KC_SLSH, KC_ASTR}, // Shift / is * (sym \)
-  {KC_MINS, KC_PLUS}, // Shift - is +
-  {KC_EXLM, KC_QUES}, // Shift ! is ? (sym =)
+  {KC_MINS, KC_PLUS}, // Shift - is + (sym =)
   {KC_AT  , KC_HASH}, // Shift @ is # (sym &)
-  // {KC_QUES, KC_EXLM}, // Shift ? is !
+  {KC_QUES, KC_EXLM}, // Shift ? is !
+    // {KC_EXLM, KC_QUES}, // Shift ! is ? (sym =)
   // {KC_EQL , KC_BSLS}, /* Shift = is \ */
   // {KC_AT  , KC_AMPR}, // Shift @ is &
   // {KC_PIPE, KC_AMPR}, // Shift | is &

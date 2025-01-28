@@ -16,7 +16,7 @@
 
 // Layers
 #define LT_SPC LT(1,KC_SPC)
-#define LT_R LT(2,KC_R)
+#define LT_R   LT(2,KC_R)
 #define LT_ESC LT(3,KC_ESC)
 #define LT_ENT LT(4,KC_ENT)
 #define LT_TAB LT(5,KC_TAB)
@@ -28,3 +28,5 @@
 
 // vi
 #define VI_JMP LCTL(KC_CIRC)
+#define VI_IN  LCTL(KC_CIRC)
+#define VI_OUT LCTL(KC_CIRC)

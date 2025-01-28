@@ -17,9 +17,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // BASE
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX,  KC_Q,    KC_W,    KC_M,    KC_G,    KC_V,                        KC_MINS,  KC_U,    KC_O,    KC_Y,   KC_AT,   XXXXXXX,
+      XXXXXXX,  KC_V,    KC_W,    KC_M,    KC_G,    KC_Z,                        KC_MINS,  KC_U,    KC_O,    KC_Y,   KC_AT,   XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_Z,    HM_C,    HM_S,    HM_N,    HM_T,    KC_B,                         KC_X,    HM_A,    HM_E,    HM_I,    HM_H,  KC_QUOTE,
+       KC_Q,    HM_C,    HM_S,    HM_N,    HM_T,    KC_B,                         KC_X,    HM_A,    HM_E,    HM_I,    HM_H,  KC_QUOTE,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,  KC_P,    HM_F,    KC_L,    KC_D,    KC_J,                        KC_EXLM,  KC_K,   KC_COMM, HM_DOT,  KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|

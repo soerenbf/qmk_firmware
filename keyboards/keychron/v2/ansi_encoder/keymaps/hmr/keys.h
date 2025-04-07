@@ -24,6 +24,8 @@
 #define MC_CUT LGUI(KC_X)
 
 // vi
-#define VI_JMP LCTL(KC_CIRC)
-#define VI_IN  LCTL(KC_I)
-#define VI_OUT LCTL(KC_O)
+#define VI_JMP  LCTL(KC_CIRC)
+#define VI_IN   LCTL(KC_I)
+#define VI_OUT  LCTL(KC_O)
+#define VI_DOWN LCTL(KC_D)
+#define VI_UP   LCTL(KC_U)

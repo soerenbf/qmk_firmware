@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
          KC_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-        CW_TOGG,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    HM_M,   HM_COMM, HM_DOT,  HM_SLSH,          CW_TOGG,          KC_UP,
+        KC_LSFT,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    HM_M,   HM_COMM, HM_DOT,  HM_SLSH,          KC_RSFT,          KC_UP,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
         KC_LCTL, KC_LOPT,  LT_LCMD,                            LT_SPC,                             KC_RCMD, KC_RALT, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [WIN_BASE] = LAYOUT_ansi_82(
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        KC_ESC,   KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  KC_DEL,           KC_MUTE,
+         KC_ESC,  KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  KC_DEL,           KC_MUTE,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
          KC_GRV,  KC_1,     KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,   KC_MINS, KC_EQL,  KC_BSPC,          KC_PGUP,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
          KC_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-        CW_TOGG,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    HM_M,   HM_COMM, HM_DOT,  HM_SLSH,          CW_TOGG,          KC_UP,
+        KC_LSFT,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    HM_M,   HM_COMM, HM_DOT,  HM_SLSH,          KC_RSFT,          KC_UP,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
         KC_LCTL, KC_LWIN,  LT_LALT,                            LT_SPC,                             KC_RALT, KC_RWIN, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         _______,  RM_PREV, RM_VALD, RM_HUED, RM_SATD, RM_SPDD, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,          KC_MPLY,          MO(QMK),
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-        _______,  _______, _______, _______, _______, _______, KC_CIRC, VI_DOWN, VI_UP,   KC_DLR,  _______,          _______,          KC_VOLU,
+        CW_TOGG,  _______, _______, _______, _______, _______, KC_CIRC, VI_DOWN, VI_UP,   KC_DLR,  _______,          CW_TOGG,          KC_VOLU,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
         _______, _______,  _______,                            _______,                            _______, _______, _______, KC_MPRV, KC_VOLD, KC_MNXT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
@@ -155,26 +155,31 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      keyrecord_t* tap_hold_record,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
+  // Allow all holds for spc and b keys as they are in the center.
+  switch (other_keycode) {
+    case LT_SPC:
+    case KC_B:
+        return true;
+  }
+
+  // For certain key combinations, we'll also allow holds.
   switch (tap_hold_keycode) {
     // Allow same hand mods layer for thumbs
     case LT_SPC:
+    case LT_LCMD:
+    case LT_LALT:
       return true;
     // Allow common combinations for left hand
-    case HM_A:
-    case HM_D:
-      switch (other_keycode) {
-        case KC_C:
-        case KC_V:
-        case KC_X:
-        case KC_Z:
-        case KC_R:
-        case KC_W:
-          return true;
+    case HM_A: // lmet
+    case HM_D: // lctl
+      if (other_record->event.key.row > 1) { // i.e. all alpha letters
+        return true;
       }
+      break;
   }
 
-  // Otherwise, follow the opposite hands rule.
-  return achordion_opposite_hands(tap_hold_record, other_record);
+  // Check that both keys on the same hand. This is what happens in achordion, but the keyboard is not as symmetric as assumed by the library.
+  return (tap_hold_record->event.key.col < 6) != (other_record->event.key.col < 6);
 }
 
 bool achordion_eager_mod(uint8_t mod) {

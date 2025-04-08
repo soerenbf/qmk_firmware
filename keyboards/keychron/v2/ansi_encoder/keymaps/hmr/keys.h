@@ -16,7 +16,8 @@
 
 // Layers
 #define LT_SPC LT(2,KC_SPC) // nav
-// #define LT_SPC LT(3,KC_SPC) // sym
+#define LT_LCMD LT(3,KC_LCMD) // 3 = sym
+#define LT_LALT LT(3,KC_LALT) // 3 = sym
 
 // MacOS
 #define MC_CPY LGUI(KC_C)

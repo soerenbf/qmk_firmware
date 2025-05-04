@@ -14,6 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "keycodes.h"
 #include QMK_KEYBOARD_H
 
 // Userspace
@@ -42,11 +43,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
          KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,   KC_LBRC, KC_RBRC, KC_BSLS,          KC_DEL,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-         KC_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
+         LT_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
         KC_LSFT,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    HM_M,   HM_COMM, HM_DOT,  HM_SLSH,          KC_RSFT,          KC_UP,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
-        KC_LCTL, KC_LOPT,  LT_LCMD,                            LT_SPC,                             KC_RCMD, KC_RALT, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+        KC_LCTL, KC_LOPT,  KC_LCMD,                            LT_SPC,                             KC_RCMD, KC_RALT, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
     ),
 
@@ -56,11 +57,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
          KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,   KC_LBRC, KC_RBRC, KC_BSLS,          KC_DEL,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-         KC_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
+         LT_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
         KC_LSFT,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    HM_M,   HM_COMM, HM_DOT,  HM_SLSH,          KC_RSFT,          KC_UP,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
-        KC_LCTL, KC_LWIN,  LT_LALT,                            LT_SPC,                             KC_RALT, KC_RWIN, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+        KC_LCTL, KC_LWIN,  KC_LALT,                            LT_SPC,                             KC_RALT, KC_RWIN, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
     ),
 
@@ -82,11 +83,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         _______,  RM_SATD, RM_SATU,  KC_NO,   KC_NO,  RM_VALD, RM_VALU, RM_PREV, KC_MPLY, RM_NEXT, KC_MUTE, RM_SPDD, RM_SPDU, _______,          RM_PREV,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-        _______,  _______, _______, _______, _______, _______, KC_MINS, KC_LCBR, KC_RCBR, _______, _______, _______, _______, _______,          _______,
+        _______,  _______, _______, _______, _______, _______, KC_MINS, KC_LCBR, KC_RCBR, KC_DLR,  _______, _______, _______, _______,          _______,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
         _______,  _______, _______, _______, _______, _______, KC_LT,   KC_LPRN, KC_RPRN, KC_GT,   KC_PIPE, KC_AMPR,          _______,          _______,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-        _______,  _______, MC_CUT,  MC_CPY,  MC_PST,  _______, KC_EQL,  KC_LBRC, KC_RBRC, KC_ASTR, KC_SLSH,          KC_TILD,          RM_VALU,
+        _______,  _______, _______, _______, _______, _______, KC_EQL,  KC_LBRC, KC_RBRC, KC_ASTR, KC_SLSH,          KC_TILD,          RM_VALU,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
         _______, _______,  _______,                            _______,                            _______, _______, _______, RM_SPDD, RM_VALD, RM_SPDU
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
@@ -146,10 +147,14 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      keyrecord_t* tap_hold_record,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
-  // Allow all holds for spc and b keys as they are in the center.
+
+  // Allow all holds for spc, tab, esc and grave. Also include "b" as it's in the center.
   switch (other_keycode) {
     case LT_SPC:
     case KC_B:
+    case KC_TAB:
+    case KC_GRV:
+    case LT_ESC:
         return true;
   }
 
@@ -157,12 +162,13 @@ bool achordion_chord(uint16_t tap_hold_keycode,
   switch (tap_hold_keycode) {
     // Allow same hand mods layer for thumbs
     case LT_SPC:
+    case LT_ESC:
     case LT_LCMD:
     case LT_LALT:
       return true;
     // Allow common combinations for left hand
-    case HM_A: // lmet
-    case HM_D: // lctl
+    case HM_F: // lmet
+    case HM_S: // lctl
       if (other_record->event.key.row > 0) { // i.e. all alpha letters
         return true;
       }

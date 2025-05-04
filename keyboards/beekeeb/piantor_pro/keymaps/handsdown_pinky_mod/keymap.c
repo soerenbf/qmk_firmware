@@ -6,6 +6,7 @@
 //  - danish letters on alt ;oa (like macos)
 
 #include <stdint.h>
+#include "quantum.h"
 #include QMK_KEYBOARD_H
 
 // Userspace
@@ -18,11 +19,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // BASE
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX,  KC_V,    KC_W,    KC_M,    KC_G,    KC_Z,                        KC_MINS,  KC_U,    KC_O,    KC_Y,   KC_AT,   XXXXXXX,
+      KC_PIPE,  KC_V,    KC_W,    KC_M,    KC_G,    KC_Z,                        KC_MINS,  KC_U,    KC_O,    KC_Y,   DK_OE,   DK_AA,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_Q,    HM_C,    HM_S,    HM_N,    HM_T,    KC_B,                         KC_X,    HM_A,    HM_E,    HM_I,    HM_H,  KC_QUOTE,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_GRV,   KC_P,    HM_F,    KC_L,    KC_D,    KC_J,                        KC_EQL,   KC_K,   KC_COMM, HM_DOT,  KC_SLSH, KC_PIPE,
+      KC_GRV,   KC_P,    HM_F,    KC_L,    KC_D,    KC_J,                        KC_EQL,   KC_K,   KC_COMM, HM_DOT,  KC_SLSH, DK_AE,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           LT_TAB,  LT_R,  LT_ESC,       LT_BSPC, LT_SPC,  KC_ENT
                                       //`--------------------------'  `--------------------------'
@@ -31,11 +32,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NAV
     [1] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, MC_CPY,  MC_PST,  MC_CUT,                       KC_PGUP, KC_HOME, KC_UP,   KC_END,  XXXXXXX, XXXXXXX,
+      _______, _______, _______, _______, _______, _______,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                      KC_PGDN, KC_LEFT, KC_DOWN,KC_RIGHT, XXXXXXX, XXXXXXX,
+      _______, _______, _______, _______, _______, _______,                      KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_RALT, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_CIRC, XXXXXXX, KC_DLR,  XXXXXXX, XXXXXXX,
+      _______, _______, _______, _______, _______, _______,                      VI_HOME, VI_DOWN, VI_UP,   VI_END,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, _______, XXXXXXX,    VI_OUT,  VI_JMP,  VI_IN
                                       //`--------------------------'  `--------------------------'
@@ -45,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, _______, _______, _______, _______, _______,                      _______, KC_LCBR, KC_RCBR, KC_PERC, KC_HASH, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                      KC_LT,   KC_LPRN, KC_RPRN, KC_GT,   KC_BSLS, KC_GRV,
+      _______, _______, _______, _______, _______, _______,                      KC_LT,   KC_LPRN, KC_RPRN, KC_GT,    KC_AT,  KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, _______, _______, _______, _______, _______,                      _______, KC_LBRC, KC_RBRC, KC_ASTR, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -67,11 +68,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // FN
     [4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,                      _______, _______, _______, _______, _______, _______,
+      XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_CAPS, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,                      _______, _______, _______, _______, _______, MO(6),
+      KC_CAPS, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,                      KC_LEFT, HM_DOWN, HM_UP,  HM_RIGHT, _______, MO(6),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,                      _______, _______, _______, _______, _______, _______,
+      XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,                      VI_HOME, VI_DOWN, VI_UP,   VI_END,  _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, CW_TOGG, XXXXXXX,    XXXXXXX, _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -81,9 +82,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLU, XXXXXXX, XXXXXXX,                       _______, _______, _______, _______, _______, _______,
   //|--------|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_MPRV, KC_VOLD, KC_MNXT, XXXXXXX,                       _______, _______, _______, _______, _______, _______,
+      XXXXXXX, XXXXXXX, KC_MPRV, KC_VOLD, KC_MNXT, XXXXXXX,                       KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
   //|--------|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       _______, _______, _______, _______, _______, _______,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       _______, KC_MUTE, KC_MPLY, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_MUTE, KC_MPLY, KC_MSTP,    _______, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -103,6 +104,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  // process entire left handof layer 1 to cmd-modded keys
+  // if (IS_LAYER_ON(1)) {
+  //   switch (keycode) {
+  //     case HM_C:
+  //       tap_code16(LGUI(KC_C));
+  //       return false;
+  //     case HM_S:
+  //       tap_code16(LGUI(KC_S));
+  //       return false;
+  //     case HM_N:
+  //       tap_code16(LGUI(KC_N));
+  //       return false;
+  //     case HM_T:
+  //       tap_code16(LGUI(KC_T));
+  //       return false;
+  //     case HM_F:
+  //       tap_code16(LGUI(KC_F));
+  //       return false;
+  //   }
+  //   if (record->event.key.row % (MATRIX_ROWS / 2) <= 2 && record->event.key.col < 6) {
+  //     tap_code16(LGUI(keycode));
+  //   }
+  // }
+
   // Achordion
   if (!process_achordion(keycode, record)) { return false; }
   // custom shift keys

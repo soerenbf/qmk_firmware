@@ -6,6 +6,7 @@
 //  - danish letters on alt ;oa (like macos)
 
 #include <stdint.h>
+#include "keycodes.h"
 #include "quantum.h"
 #include QMK_KEYBOARD_H
 
@@ -32,11 +33,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NAV
     [1] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______, _______, _______, _______, _______,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
+      XXXXXXX,  GUIV,    GUIW,    GUIM,    GUIG,    GUIZ,                        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                      KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, XXXXXXX, XXXXXXX,
+       GUIQ,   _______, _______, _______, _______,  GUIB,                        KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                      VI_HOME, VI_DOWN, VI_UP,   VI_END,  XXXXXXX, XXXXXXX,
+      XXXXXXX,  GUIP,   HM_F,     GUIL,    GUID,    GUIJ,                        VI_HOME, VI_DOWN, VI_UP,   VI_END,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, _______, XXXXXXX,    VI_OUT,  VI_JMP,  VI_IN
                                       //`--------------------------'  `--------------------------'
@@ -105,28 +106,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // process entire left handof layer 1 to cmd-modded keys
-  // if (IS_LAYER_ON(1)) {
-  //   switch (keycode) {
-  //     case HM_C:
-  //       tap_code16(LGUI(KC_C));
-  //       return false;
-  //     case HM_S:
-  //       tap_code16(LGUI(KC_S));
-  //       return false;
-  //     case HM_N:
-  //       tap_code16(LGUI(KC_N));
-  //       return false;
-  //     case HM_T:
-  //       tap_code16(LGUI(KC_T));
-  //       return false;
-  //     case HM_F:
-  //       tap_code16(LGUI(KC_F));
-  //       return false;
-  //   }
-  //   if (record->event.key.row % (MATRIX_ROWS / 2) <= 2 && record->event.key.col < 6) {
-  //     tap_code16(LGUI(keycode));
-  //   }
-  // }
+  if (IS_LAYER_ON(1) && record->event.pressed && record->tap.count) {
+    switch (keycode) {
+      case HM_C:
+        tap_code16(LGUI(KC_C));
+        return false;
+      case HM_S:
+        tap_code16(LGUI(KC_S));
+        return false;
+      case HM_N:
+        tap_code16(LGUI(KC_N));
+        return false;
+      case HM_T:
+        tap_code16(LGUI(KC_T));
+        return false;
+      case HM_F:
+        tap_code16(LGUI(KC_F));
+        return false;
+    }
+    // if (record->event.key.row % (MATRIX_ROWS / 2) <= 2 && record->event.key.col < 6) {
+    //   tap_code16(LGUI(keycode));
+    //   return false;
+    // }
+  }
 
   // Achordion
   if (!process_achordion(keycode, record)) { return false; }

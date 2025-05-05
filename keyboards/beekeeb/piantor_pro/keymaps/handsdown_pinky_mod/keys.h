@@ -44,3 +44,28 @@
 #define DK_OE LALT(KC_O)
 #define DK_AA LALT(KC_A)
 #define DK_AE LALT(KC_QUOT)
+
+// meta keys
+#define GUIC LGUI(KC_C)
+#define GUIS LGUI(KC_S)
+#define GUIN LGUI(KC_N)
+#define GUIT LGUI(KC_T)
+#define GUIF LGUI(KC_F)
+
+#define GUIV LGUI(KC_V)
+#define GUIW LGUI(KC_W)
+#define GUIM LGUI(KC_M)
+#define GUIG LGUI(KC_G)
+#define GUIZ LGUI(KC_Z)
+#define GUIQ LGUI(KC_Q)
+#define GUIB LGUI(KC_B)
+#define GUIP LGUI(KC_P)
+#define GUIL LGUI(KC_L)
+#define GUID LGUI(KC_D)
+#define GUIJ LGUI(KC_J)
+
+#define HM_GUIC LSFT_T(GUIC)
+#define HM_GUIS LALT_T(GUIS)
+#define HM_GUIN LALT_T(GUIN)
+#define HM_GUIT LGUI_T(GUIT)
+#define HM_GUIF RALT_T(GUIF)

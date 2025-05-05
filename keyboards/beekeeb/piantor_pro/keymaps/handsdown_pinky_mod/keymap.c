@@ -19,11 +19,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // BASE
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_PIPE,  KC_V,    KC_W,    KC_M,    KC_G,    KC_Z,                        KC_MINS,  KC_U,    KC_O,    KC_Y,   DK_OE,   DK_AA,
+      KC_GRV,   KC_V,    KC_W,    KC_M,    KC_G,    KC_Z,                        KC_MINS,  KC_U,    KC_O,    KC_Y,   DK_OE,   DK_AA,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_Q,    HM_C,    HM_S,    HM_N,    HM_T,    KC_B,                         KC_X,    HM_A,    HM_E,    HM_I,    HM_H,  KC_QUOTE,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_GRV,   KC_P,    HM_F,    KC_L,    KC_D,    KC_J,                        KC_EQL,   KC_K,   KC_COMM, HM_DOT,  KC_SLSH, DK_AE,
+      KC_PIPE,  KC_P,    HM_F,    KC_L,    KC_D,    KC_J,                        KC_EQL,   KC_K,   KC_COMM, HM_DOT,  KC_SLSH, DK_AE,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           LT_TAB,  LT_R,  LT_ESC,       LT_BSPC, LT_SPC,  KC_ENT
                                       //`--------------------------'  `--------------------------'
@@ -164,6 +164,11 @@ bool achordion_chord(uint16_t tap_hold_keycode,
     case LT_BSPC:
     case LT_TAB:
       return true;
+    case HM_N:
+      switch (other_keycode) {
+        case KC_GRV:
+          return true;
+      }
   }
 
   // Also allow same-hand holds when the other key is in the rows below the

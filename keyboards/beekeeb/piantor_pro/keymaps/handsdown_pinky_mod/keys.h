@@ -41,9 +41,9 @@
 
 // dk
 // TODO: figure out what to do for other operating systems than macOS...
-#define DK_OE LALT(KC_O)
-#define DK_AA LALT(KC_A)
-#define DK_AE LALT(KC_QUOT)
+#define DK_OE RALT(KC_O)
+#define DK_AA RALT(KC_A)
+#define DK_AE RALT(KC_QUOT)
 
 // meta keys
 #define GUIC LGUI(KC_C)

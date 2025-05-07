@@ -43,9 +43,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
          KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,   KC_LBRC, KC_RBRC, KC_BSLS,          KC_DEL,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-         LT_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
+         LT_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    HM_J,    HM_K,    HM_L,   HM_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-        KC_LSFT,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    HM_M,   HM_COMM, HM_DOT,  HM_SLSH,          KC_RSFT,          KC_UP,
+        KC_LSFT,  KC_Z,     HM_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,   KC_COMM, HM_DOT,  KC_SLSH,          KC_RSFT,          KC_UP,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
         KC_LCTL, KC_LOPT,  KC_LCMD,                            LT_SPC,                             KC_RCMD, KC_RALT, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
@@ -57,9 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
          KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,   KC_LBRC, KC_RBRC, KC_BSLS,          KC_DEL,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-         LT_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
+         LT_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    HM_J,    HM_K,    HM_L,   HM_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-        KC_LSFT,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    HM_M,   HM_COMM, HM_DOT,  HM_SLSH,          KC_RSFT,          KC_UP,
+        KC_LSFT,  KC_Z,     HM_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,   KC_COMM, HM_DOT,  KC_SLSH,          KC_RSFT,          KC_UP,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
         KC_LCTL, KC_LWIN,  KC_LALT,                            LT_SPC,                             KC_RALT, KC_RWIN, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
@@ -167,12 +167,12 @@ bool achordion_chord(uint16_t tap_hold_keycode,
     case LT_LALT:
       return true;
     // Allow common combinations for left hand
-    case HM_F: // lmet
-    case HM_S: // lctl
-      if (other_record->event.key.row > 0) { // i.e. all alpha letters
-        return true;
-      }
-      break;
+    // case HM_F: // lmet
+    // case HM_S: // lctl
+    //   if (other_record->event.key.row > 0) { // i.e. all alpha letters
+    //     return true;
+    //   }
+    //   break;
   }
 
   // Check that both keys on the same hand. This is what happens in achordion, but the keyboard is not as symmetric as assumed by the library.

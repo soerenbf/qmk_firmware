@@ -4,15 +4,21 @@
 #define HM_D LALT_T(KC_D)
 #define HM_F LGUI_T(KC_F)
 
-// #define HM_X RALT_T(KC_X)
+#define HM_X RALT_T(KC_X)
+
+// RH mods (home row)
+#define HM_J RGUI_T(KC_J)
+#define HM_K LALT_T(KC_K)
+#define HM_L RCTL_T(KC_L)
+#define HM_SCLN RSFT_T(KC_SCLN)
+
+#define HM_DOT RALT_T(KC_DOT)
 
 // RH mods (bottom row)
-#define HM_M RGUI_T(KC_M)
-#define HM_COMM LALT_T(KC_COMM)
-#define HM_DOT RCTL_T(KC_DOT)
-#define HM_SLSH RSFT_T(KC_SLSH)
-
-// #define HM_DOT RALT_T(KC_DOT)
+// #define HM_M RGUI_T(KC_M)
+// #define HM_COMM LALT_T(KC_COMM)
+// #define HM_DOT RCTL_T(KC_DOT)
+// #define HM_SLSH RSFT_T(KC_SLSH)
 
 // Layers
 #define LT_SPC LT(2,KC_SPC) // nav

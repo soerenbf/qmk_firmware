@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
         KC_LSFT,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,   KC_COMM, HM_DOT,  KC_SLSH,          KC_RSFT,          KC_UP,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
-        KC_LCTL, KC_LWIN,  KC_LALT,                            LT_SPC,                             KC_RALT, KC_RWIN, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+        KC_LCTL, KC_LWIN,  KC_LCTL,                            LT_SPC,                             KC_RALT, KC_RWIN, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
     ),
 
@@ -128,6 +128,17 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [QMK]   = { ENCODER_CCW_CW(RM_VALD, RM_VALU)},
 };
 #endif // ENCODER_MAP_ENABLE
+
+// Handle DIP switches similarly to v2, i.e. switch between layer 0/1
+bool dip_switch_update_user(uint8_t index, bool active) {
+    if (index == 0) {
+        default_layer_set(1UL << (active ? 1 : 0));
+        return false; // Prevent keyboard-level function from processing this switch
+    }
+
+    // Return true for other switches to allow keyboard-level function to process them
+    return true;
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // Achordion

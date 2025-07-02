@@ -1,16 +1,16 @@
 // LH mods
-#define HM_C LSFT_T(KC_C)
-#define HM_S RCTL_T(KC_S)
-#define HM_N LALT_T(KC_N)
-#define HM_T LGUI_T(KC_T)
+#define HM_C LCTL_T(KC_C)
+#define HM_S LALT_T(KC_S)
+#define HM_N LGUI_T(KC_N)
+#define HM_T LSFT_T(KC_T)
 
 #define HM_F RALT_T(KC_F)
 
 // RH mods
-#define HM_A RGUI_T(KC_A)
-#define HM_E LALT_T(KC_E)
-#define HM_I RCTL_T(KC_I)
-#define HM_H RSFT_T(KC_H)
+#define HM_A RSFT_T(KC_A)
+#define HM_E RGUI_T(KC_E)
+#define HM_I LALT_T(KC_I)
+#define HM_H RCTL_T(KC_H)
 
 #define HM_DOT RALT_T(KC_DOT)
 

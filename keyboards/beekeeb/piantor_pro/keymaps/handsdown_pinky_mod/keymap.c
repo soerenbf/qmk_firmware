@@ -166,7 +166,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
     case LT_BSPC:
     case LT_TAB:
       return true;
-    case HM_N:
+    case HM_S: // LALT
       switch (other_keycode) {
         case KC_GRV:
           return true;
@@ -207,7 +207,7 @@ const custom_shift_key_t custom_shift_keys[] = {
   {KC_MINS, KC_PLUS}, // Shift - is +
   // {KC_AT  , KC_AMPR}, // Shift @ is & (sym #)
   // {KC_EXLM, KC_QUES}, // Shift ? is ! (sym =)
-  {LT_SPC , KC_UNDS}, // Shift space is _
+  // {LT_SPC , KC_UNDS}, // Shift space is _
   // {HM_DOT , KC_COLN}, // Shift . is :
   // {KC_COMM, KC_SCLN}, // Shift , is ;
   // {KC_ASTR, KC_BSLS}, /* Shift * is \ */

@@ -167,6 +167,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
     case LT_TAB:
       return true;
     case HM_S: // LALT
+    case HM_N: // LGUI
       switch (other_keycode) {
         case KC_GRV:
           return true;

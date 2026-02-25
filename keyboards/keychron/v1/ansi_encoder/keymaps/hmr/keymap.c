@@ -62,11 +62,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
          KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,   KC_LBRC, KC_RBRC, KC_BSLS,          KC_PGDN,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-         LT_ESC,  HM_A,     HM_S,    HM_D,    HM_F,    KC_G,    KC_H,    HM_J,    HM_K,    HM_L,   HM_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
+         LT_ESC,  KC_A,     KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,           KC_HOME,
     // |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-        KC_LSFT,  KC_Z,     HM_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,   KC_COMM, HM_DOT,  KC_SLSH,          KC_RSFT,          KC_UP,
+        KC_LSFT,  KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT,          KC_UP,
     // |-----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
-        KC_LCTL, KC_LWIN,  KC_LCTL,                            LT_SPC,                             KC_RALT, KC_RWIN, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+        KC_LCTL, KC_LALT,  CTL_WIN,                            LT_SPC,                             KC_RALT, KC_RWIN, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     // |--------+--------+--------+--------------------------------------------------------------+--------+--------+--------+--------+--------+--------|
     ),
 
@@ -156,6 +156,8 @@ void matrix_scan_user(void) {
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT_SPC: // TODO: maybe 0 here as well?
+            return QUICK_TAP_TERM;
+        case CTL_WIN: // Enable quick tap for tap-then-hold = tap behavior
             return QUICK_TAP_TERM;
         default:
             return 0;

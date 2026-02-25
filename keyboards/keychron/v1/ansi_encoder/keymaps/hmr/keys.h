@@ -19,10 +19,13 @@
 // #define HM_SLSH RSFT_T(KC_SLSH)
 
 // Layers
-#define LT_SPC LT(2,KC_SPC) // 2 = nav
-#define LT_ESC LT(3,KC_ESC) // sym
-#define LT_LCMD LT(3,KC_LCMD) // 3 = sym
-#define LT_LALT LT(3,KC_LALT) // 3 = sym
+#define LT_SPC LT(2, KC_SPC)   // 2 = nav
+#define LT_ESC LT(3, KC_ESC)   // sym
+#define LT_LCMD LT(3, KC_LCMD) // 3 = sym
+#define LT_LALT LT(3, KC_LALT) // 3 = sym
+
+// Custom tap-hold: tap = LWIN, hold = LCTL, tap+hold = LWIN
+#define CTL_WIN MT(MOD_LCTL, KC_LGUI)
 
 // MacOS
 #define MC_CPY LGUI(KC_C)
@@ -30,10 +33,10 @@
 #define MC_CUT LGUI(KC_X)
 
 // vi
-#define VI_JMP  LCTL(KC_CIRC)
-#define VI_IN   LCTL(KC_I)
-#define VI_OUT  LCTL(KC_O)
+#define VI_JMP LCTL(KC_CIRC)
+#define VI_IN LCTL(KC_I)
+#define VI_OUT LCTL(KC_O)
 #define VI_DOWN LCTL(KC_D)
-#define VI_UP   LCTL(KC_U)
+#define VI_UP LCTL(KC_U)
 #define VI_HOME KC_CIRC
-#define VI_END  KC_DLR
+#define VI_END KC_DLR

@@ -188,6 +188,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
     case LT_ESC:
     case LT_LCMD:
     case LT_LALT:
+    case CTL_WIN:
       return true;
     // Allow common combinations for left hand
     // case HM_F: // lmet

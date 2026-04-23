@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 //
 // TODO:
-// - OS detection
 //  - danish letters on alt ;oa (like macos)
 
 #include <stdint.h>
@@ -104,24 +103,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+static inline uint16_t oscmd(uint16_t kc) {
+  return (detected_host_os() == OS_MACOS || detected_host_os() == OS_IOS)
+    ? LGUI(kc)
+    : LCTL(kc);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  // process entire left handof layer 1 to cmd-modded keys
+  // process entire left hand of layer 1 as cmd/ctrl-modded keys (OS-aware)
   if (IS_LAYER_ON(1) && record->event.pressed && record->tap.count) {
     switch (keycode) {
       case HM_C:
-        tap_code16(LGUI(KC_C));
+        tap_code16(oscmd(KC_C));
         return false;
       case HM_S:
-        tap_code16(LGUI(KC_S));
+        tap_code16(oscmd(KC_S));
         return false;
       case HM_N:
-        tap_code16(LGUI(KC_N));
+        tap_code16(oscmd(KC_N));
         return false;
       case HM_T:
-        tap_code16(LGUI(KC_T));
+        tap_code16(oscmd(KC_T));
         return false;
       case HM_F:
-        tap_code16(LGUI(KC_F));
+        tap_code16(oscmd(KC_F));
         return false;
     }
     // if (record->event.key.row % (MATRIX_ROWS / 2) <= 2 && record->event.key.col < 6) {
